@@ -16,8 +16,6 @@ public class Game {
 
     public Game(){
         // initialize a new game such that each column can store cards
-        this.buildDeck();
-        this.shuffle();        
     }
 
     public void buildDeck() {
@@ -30,15 +28,11 @@ public class Game {
     }
 
     public void shuffle() {
-        java.util.Collections.shuffle(deck);
-        System.out.print("Hello ");
+        // shuffles the deck so that it is random
     }
 
     public void dealFour() {
         // remove the top card from the deck and add it to a column; repeat for each of the four columns
-        //for(int i = 0; i < 4; i++){
-            //cols<i>.add(deck<i>);
-        //}
     }
 
     public void remove(int columnNumber) {
