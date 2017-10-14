@@ -31,14 +31,12 @@ public class Game {
 
     public void shuffle() {
         java.util.Collections.shuffle(deck);
-        System.out.print("Hello ");
     }
 
     public void dealFour() {
         // remove the top card from the deck and add it to a column; repeat for each of the four columns
-        //for(int i = 0; i < 4; i++){
-            //cols<i>.add(deck<i>);
-        //}
+        for(int i = 0; i < 4; i++){
+        }
     }
 
     public void remove(int columnNumber) {
