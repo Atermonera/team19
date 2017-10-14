@@ -15,7 +15,9 @@ public class Game {
 
 
     public Game(){
-        // initialize a new game such that each column can store cards
+		// initialize a new game such that each column can store cards
+		this.buildDeck();
+		this.shuffle();        		
     }
 
     public void buildDeck() {
@@ -29,6 +31,7 @@ public class Game {
 
     public void shuffle() {
         // shuffles the deck so that it is random
+		java.util.Collections.shuffle(deck);
     }
 
     public void dealFour() {
