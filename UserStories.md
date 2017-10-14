@@ -33,32 +33,14 @@ public class Game {
 
     public void dealFour() {
         // remove the top card from the deck and add it to a column; repeat for each of the four columns
-	for (int i = 0; i < 4; i ++){
-	    this.cols.get(i).add(this.deck.get(i));
-	}
-	this.deck = this.deck.subList(4, this.deck.size());
     }
 
     public void remove(int columnNumber) {
         // remove the top card from the indicated column
-		// If the column isn't empty, we can remove a card
-		if(!columnHasCards(columnNumber))
-			return;
-		
-		// If the other columns don't have a matching suit as this column and a lower value,
-		// we can remove a card
-		for(int i = 0; i < 4; i++)
-			if(columnNumber != i && getTopCard(columnNumber).getSuit() == getTopCard(i).getSuit() && getTopCard(columnNumber).getValue() > getTopCard(i).getValue())
-				return;
-		
-		removeCardFromCol(columnNumber);
-		
     }
 
     private boolean columnHasCards(int columnNumber) {
         // check indicated column for number of cards; if no cards return false, otherwise return true
-		if (cols.get(columnNumber).size() > 0)
-			return true;
         return false;
     }
 
@@ -69,12 +51,6 @@ public class Game {
 
     public void move(int columnFrom, int columnTo) {
         // remove the top card from the columnFrom column, add it to the columnTo column
-		if (columnHasCards(columnTo))
-			return;
-		else
-			addCardToCol(columnFrom, getTopCard(columnTo));
-			removeCardFromCol(columnFrom);
-			return;
     }
 
     private void addCardToCol(int columnTo, Card cardToMove) {
