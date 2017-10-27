@@ -26,10 +26,10 @@ public class Game {
 
     public void buildDeck() {
         for(int i = 2; i < 15; i++){
-            deck.add(new Card(i,Suit.Clubs));
-            deck.add(new Card(i,Suit.Hearts));
-            deck.add(new Card(i,Suit.Diamonds));
-            deck.add(new Card(i,Suit.Spades));
+            deck.add(new Card(i,Suit.C));
+            deck.add(new Card(i,Suit.H));
+            deck.add(new Card(i,Suit.D));
+            deck.add(new Card(i,Suit.S));
         }
     }
 

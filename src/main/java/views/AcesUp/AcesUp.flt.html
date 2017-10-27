@@ -104,6 +104,14 @@ $( '.columnOfCards .cardLocation' ).html("");
 
     $.each(game.cols[0], function( key, val ) {
         $( '#c0 .l'+key ).html(val.value + val.suit);
+
+        //this is where I try shit
+        //var img = document.createElement("img");
+        //img.src = "assets/cardimages/2C.png";
+        //var src = $( '#c0 .l'+key ).html(val.value + val.suit);
+        //src.appendChild(img);
+        //end of where I try shit
+
     });
 
 	$.each(game.cols[1], function( key, val ) {
