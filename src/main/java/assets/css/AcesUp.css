@@ -1,15 +1,15 @@
 tr{
-width:500px;
+	width:500px;
 }
 
 td{
-width:100px;
-height:20px;
-text-align:center;
+	width:100px;
+	height:20px;
+	text-align:center;
 }
 
 .title{
-font-weight: bold;
+	font-weight: bold;
 }
 
 .cardLocation{
