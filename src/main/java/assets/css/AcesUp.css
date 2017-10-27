@@ -14,5 +14,5 @@ font-weight: bold;
 
 .cardLocation{
 width: 100px;
-background-image: url(/assets/cardimages); /*Need to route*/
+background-color: #4545;
 }
