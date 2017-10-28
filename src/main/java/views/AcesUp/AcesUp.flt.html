@@ -153,15 +153,18 @@ $("#dealButton").click(function(){
 		contentType:"application/json; charset=utf-8",
 		dataType:"json",
 	});
-  if (game.deck.length<=4) {
-      console.log("out!");
-      $('td#Deck').html('<img src="/assets/cardimages/Joker.jpg"/>')
-  }
+	if (game.deck.length<=4) {
+		console.log("out!");
+		$('td#Deck').html('<img src="/assets/cardimages/Joker.jpg"/>')
+	}
+	if(game.deck.length<=0){
+		alert("The deck is out of cards.");
+	}
 });
 
 
 function removeCard(colNumber){
-  console.log(/removeCard/);
+	console.log(/removeCard/);
 	$.ajax({
 		type: "POST",
 		url: "/removeCard/"+colNumber,
