@@ -1,9 +1,13 @@
 h1{
   font-family: 'Fascinate Inline', cursive;
+  font-size: 50px;
+  text-align:center;
+  
 }
 
 body{
   font-family: 'Quicksand', sans-serif;
+  background-color: #17b326;
 }
 
 button{
@@ -32,7 +36,12 @@ font-weight: bold;
 .cardLocation{
   background-color: rgba(240, 240, 240, 0.01);
   background-position: center;
-  width: 200px;
+  max-height: 50px;
+  max-width: 130.8px;
+  position: absolute;
+  margin-top: 20px;
+  height: 50px;
+  width: 140px;
 }
 
 .c0 *, .c1 *, .c2 *, .c3 *{
@@ -40,6 +49,25 @@ font-weight: bold;
   background-size: contain;
 }
 
+
 .extra{
   padding-top: 7px;
+}
+img{
+		margin-bottom: 40px;
+}
+
+.columnOfCards table tr{
+	height: 50px;
+	width: 140px;
+}
+
+.columnOfCards{
+	height: 650px;
+	width: 130.8px;
+}
+
+.cardLocation:last-child{
+	height: 200px;
+	
 }
