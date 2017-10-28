@@ -7,20 +7,16 @@
 <body>
 
 <table>
-    <tr class="title">
-        <td> </td>
-        <td>Column0</td>
-        <td >Column1</td>
-        <td >Column2</td>
-        <td >Column3</td>
-    </tr>
-
     <tr class="board">
-        <td class="columnOfCards" id="c-1">
+        <td id="c-1">
             <button id="dealButton">Deal</button>
             <table id="otherDecks">
-                <tr><td class="cardLocation l0" id="Deck"></td></tr>
-                <tr><td class="cardLocation l1" id="Discard"></td></tr>
+                <tr><td class="extra" id="Deck">
+                    <img src="/assets/cardimages/red_back.png"/>
+                </td></tr>
+                <tr><td class="extra" id="Discard">
+                    <img src="/assets/cardimages/Joker.jpg"/>
+                </td></tr>
             </table>
         </td>
 		    <td class="columnOfCards" id="c0">
@@ -110,34 +106,20 @@ console.log(game);
 $( '.columnOfCards .cardLocation' ).html("");
 
     $.each(game.cols[0], function( key, val ) {
-        $( '#c0 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-        $( '#c0 .l'+key ).css({'background-size': 'contain'});
-        $( '#c0 .l'+key ).css({'background-repeat': 'no-repeat'});
-
+        $( '#c0 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
     });
 
 	$.each(game.cols[1], function( key, val ) {
-        $( '#c1 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-        $( '#c1 .l'+key ).css({'background-size': 'contain'});
-        $( '#c1 .l'+key ).css({'background-repeat': 'no-repeat'});
-
+        $( '#c1 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
     });
 
 	$.each(game.cols[2], function( key, val ) {
-        $( '#c2 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-        $( '#c2 .l'+key ).css({'background-size': 'contain'});
-        $( '#c2 .l'+key ).css({'background-repeat': 'no-repeat'});
-
+        $( '#c2 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
     });
 
 	$.each(game.cols[3], function( key, val ) {
-        $( '#c3 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-        $( '#c3 .l'+key ).css({'background-size': 'contain'});
-        $( '#c3 .l'+key ).css({'background-repeat': 'no-repeat'});
-
+        $( '#c3 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
     });
-
-
 
 }
 
@@ -160,10 +142,15 @@ $("#dealButton").click(function(){
 		contentType:"application/json; charset=utf-8",
 		dataType:"json",
 	});
+  if (game.deck.length<=4) {
+      console.log("out!");
+      $('td#Deck').html('<img src="/assets/cardimages/Joker.jpg"/>')
+  }
 });
 
 
 function removeCard(colNumber){
+  console.log(/removeCard/);
 	$.ajax({
 		type: "POST",
 		url: "/removeCard/"+colNumber,
@@ -177,6 +164,8 @@ function removeCard(colNumber){
 		dataType:"json",
 	});
 }
+
+console.log(game);
 
 
 $("#Remove1").click(function(){
