@@ -19,10 +19,12 @@
         <td id="c-1">
             <button id="dealButton">Deal</button>
             <table id="otherDecks">
-                <tr><td class="cardLocation l0" id="Deck">
+                <tr><td class="extra" id="Deck">
                     <img src="/assets/cardimages/red_back.png"/>
                 </td></tr>
-                <tr><td class="cardLocation l1" id="Discard"></td></tr>
+                <tr><td class="extra" id="Discard">
+                    <img src="/assets/cardimages/Joker.jpg"/>
+                </td></tr>
             </table>
         </td>
 		    <td class="columnOfCards" id="c0">
@@ -161,6 +163,7 @@ $("#dealButton").click(function(){
 
 
 function removeCard(colNumber){
+  console.log(/removeCard/);
 	$.ajax({
 		type: "POST",
 		url: "/removeCard/"+colNumber,
