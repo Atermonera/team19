@@ -6,7 +6,18 @@
 
 <body>
 
-<table>
+<div>
+  <div class="movebutton">
+    <BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
+  </div>
+  <table class="main">
+    <tr class="columnTitles">
+        <td></td>
+        <td><b>Col #0</b></td>
+        <td><b>Col #1</b></td>
+        <td><b>Col #2</b></td>
+        <td><b>Col #3</b></td>
+    </tr>
     <tr class="board">
         <td id="c-1">
             <button id="dealButton">Deal</button>
@@ -93,8 +104,8 @@
         </td>
     </tr>
 </table>
+</div>
 
-<BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
 
 <script>
 
