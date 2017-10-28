@@ -17,24 +17,24 @@
                 <tr><td class="cardLocation l1" id="Discard"></td></tr>
             </table>
         </td>
-		    <td class="columnOfCards" id="c0">
-		  	    <table id="Remove1">
-			  	      <tr><td class="cardLocation l0"></td></tr>
-				        <tr><td class="cardLocation l1"></td></tr>
-				        <tr><td class="cardLocation l2"></td></tr>
-				        <tr><td class="cardLocation l3"></td></tr>
-				        <tr><td class="cardLocation l4"></td></tr>
-				        <tr><td class="cardLocation l5"></td></tr>
-				        <tr><td class="cardLocation l6"></td></tr>
-				        <tr><td class="cardLocation l7"></td></tr>
-				        <tr><td class="cardLocation l8"></td></tr>
-				        <tr><td class="cardLocation l9"></td></tr>
-				        <tr><td class="cardLocation l10"></td></tr>
-				        <tr><td class="cardLocation l11"></td></tr>
-				        <tr><td class="cardLocation l12"></td></tr>
-				        <tr><td class="cardLocation l13"></td></tr>
-		  	    </table>
-		    </td>
+		<td class="columnOfCards" id="c0">
+		    <table id="Remove1">
+				<tr><td class="cardLocation l0"></td></tr>
+			    <tr><td class="cardLocation l1"></td></tr>
+			    <tr><td class="cardLocation l2"></td></tr>
+			    <tr><td class="cardLocation l3"></td></tr>
+			    <tr><td class="cardLocation l4"></td></tr>
+			    <tr><td class="cardLocation l5"></td></tr>
+			    <tr><td class="cardLocation l6"></td></tr>
+			    <tr><td class="cardLocation l7"></td></tr>
+			    <tr><td class="cardLocation l8"></td></tr>
+			    <tr><td class="cardLocation l9"></td></tr>
+			    <tr><td class="cardLocation l10"></td></tr>
+			    <tr><td class="cardLocation l11"></td></tr>
+			    <tr><td class="cardLocation l12"></td></tr>
+			    <tr><td class="cardLocation l13"></td></tr>
+	  	    </table>
+	    </td>
         <td class="columnOfCards" id="c1">
             <table id="Remove2">
                 <tr><td class="cardLocation l0"></td></tr>
@@ -104,34 +104,21 @@ console.log(game);
 $( '.columnOfCards .cardLocation' ).html("");
 
     $.each(game.cols[0], function( key, val ) {
-        $( '#c0 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-        $( '#c0 .l'+key ).css({'background-size': 'contain'});
-        $( '#c0 .l'+key ).css({'background-repeat': 'no-repeat'});
-
+        $( '#c0 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
+		$( '#c0 .l'+key ).css("{position: relative}");
     });
 
 	$.each(game.cols[1], function( key, val ) {
-        $( '#c1 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-        $( '#c1 .l'+key ).css({'background-size': 'contain'});
-        $( '#c1 .l'+key ).css({'background-repeat': 'no-repeat'});
-
+        $( '#c1 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
     });
 
 	$.each(game.cols[2], function( key, val ) {
-        $( '#c2 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-        $( '#c2 .l'+key ).css({'background-size': 'contain'});
-        $( '#c2 .l'+key ).css({'background-repeat': 'no-repeat'});
-
+        $( '#c2 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
     });
 
 	$.each(game.cols[3], function( key, val ) {
-        $( '#c3 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-        $( '#c3 .l'+key ).css({'background-size': 'contain'});
-        $( '#c3 .l'+key ).css({'background-repeat': 'no-repeat'});
-
+        $( '#c3 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
     });
-
-
 
 }
 
