@@ -17,12 +17,17 @@ tr{
 }
 
 td{
-text-align:center;
+  text-align:center;
+  vertical-align: top;
 }
 
 td#c-1{
-  vertical-align: top;
   width: 120px;
+}
+
+img{
+  width: 200px;
+  height:auto;
 }
 
 .title{
@@ -31,8 +36,8 @@ font-weight: bold;
 
 .cardLocation{
   background-color: rgba(240, 240, 240, 0.01);
-  padding: 100px;
   background-position: center;
+  width: 200px;
 }
 
 .c0 *, .c1 *, .c2 *, .c3 *{
