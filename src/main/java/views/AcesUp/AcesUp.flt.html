@@ -7,34 +7,36 @@
 <body>
 
 <table>
-   
-
     <tr class="board">
-        <td class="columnOfCards" id="c-1">
+        <td id="c-1">
             <button id="dealButton">Deal</button>
             <table id="otherDecks">
-                <tr><td class="cardLocation l0" id="Deck"></td></tr>
-                <tr><td class="cardLocation l1" id="Discard"></td></tr>
+                <tr><td class="extra" id="Deck">
+                    <img src="/assets/cardimages/red_back.png"/>
+                </td></tr>
+                <tr><td class="extra" id="Discard">
+                    <img src="/assets/cardimages/Joker.jpg"/>
+                </td></tr>
             </table>
         </td>
-		<td class="columnOfCards" id="c0">
-		    <table id="Remove1">
-				<tr><td class="cardLocation l0"></td></tr>
-			    <tr><td class="cardLocation l1"></td></tr>
-			    <tr><td class="cardLocation l2"></td></tr>
-			    <tr><td class="cardLocation l3"></td></tr>
-			    <tr><td class="cardLocation l4"></td></tr>
-			    <tr><td class="cardLocation l5"></td></tr>
-			    <tr><td class="cardLocation l6"></td></tr>
-			    <tr><td class="cardLocation l7"></td></tr>
-			    <tr><td class="cardLocation l8"></td></tr>
-			    <tr><td class="cardLocation l9"></td></tr>
-			    <tr><td class="cardLocation l10"></td></tr>
-			    <tr><td class="cardLocation l11"></td></tr>
-			    <tr><td class="cardLocation l12"></td></tr>
-			    <tr><td class="cardLocation l13"></td></tr>
-	  	    </table>
-	    </td>
+		    <td class="columnOfCards" id="c0">
+		  	    <table id="Remove1">
+			  	      <tr><td class="cardLocation l0"></td></tr>
+				        <tr><td class="cardLocation l1"></td></tr>
+				        <tr><td class="cardLocation l2"></td></tr>
+				        <tr><td class="cardLocation l3"></td></tr>
+				        <tr><td class="cardLocation l4"></td></tr>
+				        <tr><td class="cardLocation l5"></td></tr>
+				        <tr><td class="cardLocation l6"></td></tr>
+				        <tr><td class="cardLocation l7"></td></tr>
+				        <tr><td class="cardLocation l8"></td></tr>
+				        <tr><td class="cardLocation l9"></td></tr>
+				        <tr><td class="cardLocation l10"></td></tr>
+				        <tr><td class="cardLocation l11"></td></tr>
+				        <tr><td class="cardLocation l12"></td></tr>
+				        <tr><td class="cardLocation l13"></td></tr>
+		  	    </table>
+		    </td>
         <td class="columnOfCards" id="c1">
             <table id="Remove2">
                 <tr><td class="cardLocation l0"></td></tr>
@@ -105,7 +107,6 @@ $( '.columnOfCards .cardLocation' ).html("");
 
     $.each(game.cols[0], function( key, val ) {
         $( '#c0 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
-		$( '#c0 .l'+key ).css("{position: relative}");
     });
 
 	$.each(game.cols[1], function( key, val ) {
@@ -141,10 +142,15 @@ $("#dealButton").click(function(){
 		contentType:"application/json; charset=utf-8",
 		dataType:"json",
 	});
+  if (game.deck.length<=4) {
+      console.log("out!");
+      $('td#Deck').html('<img src="/assets/cardimages/Joker.jpg"/>')
+  }
 });
 
 
 function removeCard(colNumber){
+  console.log(/removeCard/);
 	$.ajax({
 		type: "POST",
 		url: "/removeCard/"+colNumber,
@@ -158,6 +164,8 @@ function removeCard(colNumber){
 		dataType:"json",
 	});
 }
+
+console.log(game);
 
 
 $("#Remove1").click(function(){
