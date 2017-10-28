@@ -101,48 +101,27 @@
 		var col3Top = 0;
 		var col4Top = 0;
 
-<button id="dealButton">Deal</button>
-
-	<BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
-
-	<script>
-
-		var game;
 
 function display(game) {
 	console.log(game);
 
 	$( '.columnOfCards .cardLocation' ).html("");
 
-	$.each(game.cols[0], function( key, val ) {
-		$( '#c0 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-		$( '#c0 .l'+key ).css({'background-size': 'contain'});
-		$( '#c0 .l'+key ).css({'background-repeat': 'no-repeat'});
-
-	});
+    $.each(game.cols[0], function( key, val ) {
+        $( '#c0 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
+    });
 
 	$.each(game.cols[1], function( key, val ) {
-		$( '#c1 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-		$( '#c1 .l'+key ).css({'background-size': 'contain'});
-		$( '#c1 .l'+key ).css({'background-repeat': 'no-repeat'});
-
-	});
+        $( '#c1 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
+    });
 
 	$.each(game.cols[2], function( key, val ) {
-		$( '#c2 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-		$( '#c2 .l'+key ).css({'background-size': 'contain'});
-		$( '#c2 .l'+key ).css({'background-repeat': 'no-repeat'});
-
-	});
+        $( '#c2 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
+    });
 
 	$.each(game.cols[3], function( key, val ) {
-		$( '#c3 .l'+key ).css({'background-image': "url(/assets/cardimages/"+val.value+val.suit+".png)"});
-		$( '#c3 .l'+key ).css({'background-size': 'contain'});
-		$( '#c3 .l'+key ).css({'background-repeat': 'no-repeat'});
-
-	});
-
-
+        $( '#c3 .l'+key ).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
+    });
 
 }
 
@@ -171,10 +150,15 @@ $("#dealButton").click(function(){
 	col2top = col2Top + 1;
 	col3top = col3Top + 1;
 	col4top = col4Top + 1;
+  if (game.deck.length<=4) {
+      console.log("out!");
+      $('td#Deck').html('<img src="/assets/cardimages/Joker.jpg"/>')
+  }
 });
 
 
 function removeCard(colNumber){
+  console.log(/removeCard/);
 	$.ajax({
 		type: "POST",
 		url: "/removeCard/"+colNumber,
@@ -188,6 +172,8 @@ function removeCard(colNumber){
 		dataType:"json",
 	});
 }
+
+console.log(game);
 
 
 $("#Remove1").click(function(){
