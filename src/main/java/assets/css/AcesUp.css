@@ -31,11 +31,35 @@ font-weight: bold;
 
 .cardLocation{
   background-color: rgba(240, 240, 240, 0.01);
-  padding: 100px;
   background-position: center;
+  max-height: 50px;
+  max-width: 130.8px;
+  position: absolute;
+  margin-top: 20px;
+  height: 50px;
+  width: 140px;
 }
 
 .c0 *, .c1 *, .c2 *, .c3 *{
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+img{
+		margin-bottom: 40px;
+}
+
+.columnOfCards table tr{
+	height: 50px;
+	width: 140px;
+}
+
+.columnOfCards{
+	height: 650px;
+	width: 130.8px;
+}
+
+.cardLocation:last-child{
+	height: 200px;
+	
 }
