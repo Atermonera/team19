@@ -25,8 +25,8 @@ import controllers.ApplicationController;
 public class Routes implements ApplicationRoutes {
 
     @Override
-    public void init(Router router) {  
-        
+    public void init(Router router) {
+
         router.GET().route("/").with(ApplicationController.class, "index");
 
         router.GET().route("/game").with(ApplicationController.class, "gameGet");
@@ -36,10 +36,11 @@ public class Routes implements ApplicationRoutes {
 
         ///////////////////////////////////////////////////////////////////////
         // Assets (pictures / javascript)
-        ///////////////////////////////////////////////////////////////////////    
+        ///////////////////////////////////////////////////////////////////////
         router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController.class, "serveWebJars");
         router.GET().route("/assets/{fileName: .*}").with(AssetsController.class, "serveStatic");
-        
+        router.GET().route("/assets/cardimages/{fileName: .*}").with(AssetsController.class, "serveStatic");
+
         ///////////////////////////////////////////////////////////////////////
         // Index / Catchall shows index page
         ///////////////////////////////////////////////////////////////////////

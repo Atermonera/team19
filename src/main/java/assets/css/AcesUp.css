@@ -28,3 +28,8 @@ font-weight: bold;
 width: 100px;
 background-color: #F0F0F0;
 }
+
+.c0 *, .c1 *, .c2 *, .c3 *{
+  background-repeat: no-repeat;
+  background-size: contain;
+}
