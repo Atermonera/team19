@@ -166,6 +166,8 @@ $("#dealButton").click(function(){
 		console.log("out!");
 		$('td#Deck').html('<img src="/assets/cardimages/Joker.jpg"/>')
 	}
+	if(game.deck.length<=0){
+		alert("The deck is out of cards.");
 });
 
 
