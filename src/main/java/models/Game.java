@@ -16,6 +16,8 @@ public class Game {
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>();
 
+    public boolean removeCard;
+
 
     public Game(){
         cols.add(new ArrayList<Card>());
@@ -58,6 +60,7 @@ public class Game {
     }
 
     public void remove(int columnNumber) {
+        this.removeCard = false;
         if(columnHasCards(columnNumber)) {
             Card c = getTopCard(columnNumber);
             boolean removeCard = false;
@@ -75,6 +78,7 @@ public class Game {
             }
             if (removeCard) {
                 this.cols.get(columnNumber).remove(this.cols.get(columnNumber).size() - 1);
+                this.removeCard = true;
             }
         }
     }
