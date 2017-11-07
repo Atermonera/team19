@@ -17,8 +17,13 @@ public class Columns{
 		// Try to move the top card from col1 to col2
 	}
 	
-	public void remove(int col){
+	public Card remove(int col){
 		// Try to remove the top card from col1	
+		Card temp = new Card(1, Suit.H); // Just to get it to compile.
+		if(stacks[col].getSize() > 0){
+			return stacks[col].pop();
+		}
+		
+		return temp;
 	}
-	
 }
