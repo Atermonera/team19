@@ -111,9 +111,9 @@
 		var game;
 
 var col1top = 0;
-var col2top = 0;
-var col3top = 0;
-var col4top = 0;
+var col2top = 0; //these will initially start at 1 because 1 card starts there
+var col3top = 0; //when OO is implemented, need to change these back to 0
+var col4top = 0; //because "Deal" func. will run at initilization
 function display(game) {
 	console.log(game);
 
@@ -181,6 +181,33 @@ function removeCard(colNumber){
 		success: function(data, status){
 			console.log("Data: " + data + "\nStatus: " + status);
 			game = data;
+			if (game.removeCard == true){
+				function addToDiscard(thisColTop, colNumber){
+					var card = $('#c'+colNumber+' .l'+thisColTop).data("card");
+					if (thisColTop >= 0) {
+						var card = $('#c'+colNumber+' .l'+thisColTop).data("card");
+						$('#Discard').html('<img src="/assets/cardimages/'+card+'.png"/>');
+					}
+				}
+				switch (colNumber) {
+					case 0:
+						addToDiscard(col1top, colNumber);
+						col1top = col1top - 1;
+						break;
+					case 1:
+						addToDiscard(col2top, colNumber);
+						col2top = col2top - 1;
+						break;
+					case 2:
+						addToDiscard(col3top, colNumber);
+						col3top = col3top - 1;
+						break;
+					case 3:
+						addToDiscard(col4top, colNumber);
+						col4top = col4top - 1;
+						break;
+				}
+			}
 			display(data);
 		},
 		contentType:"application/json; charset=utf-8",
@@ -193,30 +220,18 @@ console.log(game);
 
 $("#Remove1").click(function(){
 	removeCard(0);
-	var card = $('#c0 .l'+col1top).data("card");
-	$('#Discard').html('<img src="/assets/cardimages/'+card+'.png"/>');
-	col1top = col1top - 1;
 });
 
 $("#Remove2").click(function(){
 	removeCard(1);
-	var card = $('#c1 .l'+col2top).data("card");
-	$('#Discard').html('<img src="/assets/cardimages/'+card+'.png"/>');
-	col2top = col2top - 1;
 });
 
 $("#Remove3").click(function(){
 	removeCard(2);
-	var card = $('#c2 .l'+col3top).data("card");
-	$('#Discard').html('<img src="/assets/cardimages/'+card+'.png"/>');
-	col3top = col3top - 1;
 });
 
 $("#Remove4").click(function(){
 	removeCard(3);
-	var card = $('#c3 .l'+col4top).data("card");
-	$('#Discard').html('<img src="/assets/cardimages/'+card+'.png"/>');
-	col4top = col4top - 1;
 });
 
 
