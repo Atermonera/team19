@@ -7,22 +7,21 @@ public class Game {
 	public Stack discard;
 
     public Game() {
-		// Constructor
-		deck = new Deck();
-		cols = new Columns();
-		discard = new Stack();
-		// Deal the first four cards in here, that's part of initial state
-		dealFour();
+      // Constructor
+      deck = new Deck();
+      cols = new Columns();
+      discard = new Stack();
+      // Deal the first four cards in here, that's part of initial state
+      dealFour();
 	}
-
     public void dealFour() {
-		// Pop four cards from deck and pass them to cols to push
-		Card toPush[] = new Card[4];
-		if(deck.getSize() > 3)
-			for(int i = 0; i < 4; i++)
-				toPush[i] = deck.pop();
-			cols.deal(toPush);
-		return;
+      // Pop four cards from deck and pass them to cols to push
+      Card toPush[] = new Card[4];
+      if(deck.getSize() > 3)
+        for(int i = 0; i < 4; i++)
+          toPush[i] = deck.pop();
+        cols.deal(toPush);
+      return;
     }
 
     public void remove(int columnNumber) {
