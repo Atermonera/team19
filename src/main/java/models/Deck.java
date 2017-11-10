@@ -1,18 +1,18 @@
 package models;
 
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck extends Stack{
 	public Deck(){
-		// Constructor goes here.
+		stack = new ArrayList<>();
+		for (int i=2; i < 15; i++) {
+			stack.add(new Card(i, Suit.C));
+			stack.add(new Card(i, Suit.H));
+			stack.add(new Card(i, Suit.D));
+			stack.add(new Card(i, Suit.S));
+		}long seed = System.nanoTime();
+		Collections.shuffle(stack, new Random(seed));
 	}
-
-	// Leaving the shuffle function from the old Game in here. 
-	// Similar syntax will probably be useful
-/*	
-	public void shuffle() {
-        long seed = System.nanoTime();
-        Collections.shuffle(deck, new Random(seed));
-    }
-*/	
 }
