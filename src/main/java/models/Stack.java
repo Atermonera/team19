@@ -7,8 +7,8 @@ import java.util.Collections;
 public class Stack{
 	
 	// Internal Variables
-	private java.util.List<Card> stack;
-	
+	protected java.util.List<Card> stack;
+
 	// Constructor
 	public Stack(){
 		stack = new ArrayList<>();	
