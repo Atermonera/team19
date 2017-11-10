@@ -6,20 +6,22 @@ public class Game {
 	public Columns cols;
 	public Stack discard;
 
-    public Game(){
+    public Game() {
 		// Constructor
 		deck = new Deck();
 		cols = new Columns();
 		discard = new Stack();
 		// Deal the first four cards in here, that's part of initial state
-		if(deck.getSize() > 3)
-			cols.deal(deck.pop(), deck.pop(), deck.pop(), deck.pop());
-    }
+		dealFour();
+	}
 
     public void dealFour() {
 		// Pop four cards from deck and pass them to cols to push
+		Card toPush[] = new Card[4];
 		if(deck.getSize() > 3)
-			cols.deal(deck.pop(), deck.pop(), deck.pop(), deck.pop());
+			for(int i = 0; i < 4; i++)
+				toPush[i] = deck.pop();
+			cols.deal(toPush);
 		return;
     }
 
