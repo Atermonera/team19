@@ -119,19 +119,19 @@ function display(game) {
 
 	$( '.columnOfCards .cardLocation' ).html("");
 
-	$.each(game.cols[0], function( key, val ) {
+	$.each(game.Columns[0].stack, function( key, val ) {
 		$( '#c0 .l'+key ).data("card", val.value+val.suit).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
 	});
 
-	$.each(game.cols[1], function( key, val ) {
+	$.each(game.Columns[1].stack, function( key, val ) {
 		$( '#c1 .l'+key ).data("card", val.value+val.suit).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
 	});
 
-	$.each(game.cols[2], function( key, val ) {
+	$.each(game.Columns[2].stack, function( key, val ) {
 		$( '#c2 .l'+key ).data("card", val.value+val.suit).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
 	});
 
-	$.each(game.cols[3], function( key, val ) {
+	$.each(game.Columns[3].stack, function( key, val ) {
 		$( '#c3 .l'+key ).data("card", val.value+val.suit).html('<img src="/assets/cardimages/'+val.value+val.suit+'.png" height=200px/>');
 	});
 
