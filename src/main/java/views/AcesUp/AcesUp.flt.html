@@ -173,6 +173,7 @@ $("#dealButton").click(function(){
 
 function removeCard(colNumber){
 	console.log(/removeCard/);
+	console.log("Column:", colNumber);
 	$.ajax({
 		type: "POST",
 		url: "/removeCard/"+colNumber,
@@ -218,18 +219,22 @@ console.log(game);
 
 
 $("#Remove1").click(function(){
+	console.log("attempting to remove from column 0");
 	removeCard(0);
 });
 
 $("#Remove2").click(function(){
+	console.log("attempting to remove from column 1");
 	removeCard(1);
 });
 
 $("#Remove3").click(function(){
+	console.log("attempting to remove from column 2");
 	removeCard(2);
 });
 
 $("#Remove4").click(function(){
+	console.log("attempting to remove from column 3");
 	removeCard(3);
 });
 

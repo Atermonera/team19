@@ -26,10 +26,17 @@ public class Game {
     }
 
     public void remove(int columnNumber) {
-		if(cols[columnNumber].getSize() > 0)
-			discard.push(cols[columnNumber].pop());
-		return;
-
+		for (int i = 0; i < 4; i++){
+			//If this column is not empty and it is not the column being removed, check to see
+			// if the suits are equal and the values are greater than the removed card
+			if (i != columnNumber && cols[columnNumber].getSize() > 0
+					&& cols[i].getSize() > 0
+					&& cols[columnNumber].peek().suit == cols[i].peek().suit
+					&& cols[columnNumber].peek().value < cols[i].peek().value){
+				discard.push(cols[columnNumber].pop());
+				break;
+			}
+		}
     }
 
     public void move(int columnFrom, int columnTo) {
