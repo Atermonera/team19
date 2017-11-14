@@ -34,10 +34,6 @@ public class ApplicationController {
 
     public Result gameGet(){
         Game g = new Game();
-        g.buildDeck();
-        g.shuffle();
-        g.dealFour();
-
         return Results.json().render(g);
     }
 
@@ -48,7 +44,7 @@ public class ApplicationController {
         return Results.json().render(g);
     }
 
-    public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
+    public Result removeCard(Context context, @PathParam("colNumber") int colNumber, Game g){
         g.remove(colNumber);
         return  Results.json().render(g);
     }
@@ -58,8 +54,8 @@ public class ApplicationController {
         return  Results.json().render(g);
     }
 
-    public Result checkRemoveCard(Context context, Game g){
-      return Results.json().render(g.removeCard);
-    }
+    //public Result checkRemoveCard(Context context, Game g){
+    //  return Results.json().render(g.removeCard);
+    //}
 
 }
