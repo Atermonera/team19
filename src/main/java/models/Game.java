@@ -1,5 +1,7 @@
 package models;
 
+import static models.Suit.J;
+
 public class Game {
 
 	public Stack deck, discard;
@@ -44,7 +46,11 @@ public class Game {
     }
 
     public void remove(int columnNumber) {
+		int jokerloc = -1; //Holds the column number of the joker, -1 if not found
 		for (int i = 0; i < 4; i++){
+			if (cols[i].peek().suit == J){
+				jokerloc = i;
+			}
 			//If this column is not empty and it is not the column being removed, check to see
 			// if the suits are equal and the values are greater than the removed card
 			if (i != columnNumber && cols[columnNumber].getSize() > 0
@@ -52,8 +58,12 @@ public class Game {
 					&& cols[columnNumber].peek().suit == cols[i].peek().suit
 					&& cols[columnNumber].peek().value < cols[i].peek().value){
 				discard.push(cols[columnNumber].pop());
-				break;
+				return; //this is bounce out of remove() and not check jokerloc
+				//if doesn't work, then it will delete Joker & [colNumber] twice
 			}
+		}if(jokerloc != -1){
+			discard.push(cols[columnNumber].pop());
+			discard.push(cols[jokerloc].pop());
 		}
 		
 		// check each pile for a joker, if one is found, remove both cards
