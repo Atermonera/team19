@@ -4,16 +4,18 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Deck extends Stack{
-	public Deck(){
+// Standard Deck
+public class DeckStd extends Stack{
+	public DeckStd(){
 		stack = new ArrayList<>();
 		for (int i=2; i < 15; i++) {
-			stack.add(new Card(i, Suit.C));
-			stack.add(new Card(i, Suit.H));
-			stack.add(new Card(i, Suit.D));
-			stack.add(new Card(i, Suit.S));
+			stack.add(new Card(i, Suit.StdC));
+			stack.add(new Card(i, Suit.StdH));
+			stack.add(new Card(i, Suit.StdD));
+			stack.add(new Card(i, Suit.StdS));
 		}
 		long seed = System.nanoTime();
 		Collections.shuffle(stack, new Random(seed));
 	}
 }
+

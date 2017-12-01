@@ -2,13 +2,26 @@ package models;
 
 public class Game {
 
-	public Deck deck;
+	public Stack deck, discard;
 	public Stack[] cols;
-	public Stack discard;
 
-    public Game() {
+	public Game() {
+		new Game(0);
+	}
+	
+    public Game(int DeckType) {
 		// Constructor
-		deck = new Deck();
+		//deck = new Deck();
+		switch(DeckType){
+			case 0:
+				deck = new DeckStd();
+				break;
+			
+			case 1:
+				deck = new DeckEs();
+				break;
+		}
+		
 		cols = new Stack[4];
 		for(int i = 0; i < 4; i++)
 			cols[i] = new Stack();
@@ -19,9 +32,14 @@ public class Game {
 	
     public void dealFour() {
 		// Pop four cards from deck and pass them to cols to push
-		if(deck.getSize() > 3)
-        for(int i = 0; i < 4; i++)
-			cols[i].push(deck.pop());
+		if(deck.getSize() > 3){
+			for(int i = 0; i < 4; i++)
+				cols[i].push(deck.pop());
+		} else {
+			// deal until it's empty
+			for(int i = deck.getSize(); i > 0; i--)
+				cols[3-i].push(deck.pop());
+		}
 		return;
     }
 
@@ -37,6 +55,8 @@ public class Game {
 				break;
 			}
 		}
+		
+		// check each pile for a joker, if one is found, remove both cards
     }
 
     public void move(int columnFrom, int columnTo) {
