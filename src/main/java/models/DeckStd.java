@@ -18,4 +18,3 @@ public class DeckStd extends Stack{
 		Collections.shuffle(stack, new Random(seed));
 	}
 }
-

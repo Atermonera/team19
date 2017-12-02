@@ -14,8 +14,9 @@ public class DeckEs extends Stack{
 			stack.add(new Card(i, Suit.EsCu));
 			stack.add(new Card(i, Suit.EsSw));
 		}
-		stack.add(new Card(13, Suit.Joker));
-		stack.add(new Card(13, Suit.Joker));
+
+    stack.add(new Card(13, Suit.J));
+		stack.add(new Card(13, Suit.J));
 	
 		long seed = System.nanoTime();
 		Collections.shuffle(stack, new Random(seed));
