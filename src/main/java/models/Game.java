@@ -44,7 +44,7 @@ public class Game {
 		}
 		return;
     }
-
+	
     public void remove(int columnNumber) {
 		int jokerloc = -1; //Holds the column number of the joker, -1 if not found
 		for (int i = 0; i < 4; i++){
@@ -76,4 +76,12 @@ public class Game {
 			cols[columnTo].push(cols[columnFrom].pop());//moveCard to empty column
 		return;
     }
+	
+	public void customDeal(card A, card B, card C, card D){
+		cols[0].push(A);
+		cols[1].push(B);
+		cols[2].push(C);
+		cols[3].push(D);
+		return;
+	}
 }
