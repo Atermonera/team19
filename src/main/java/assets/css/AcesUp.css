@@ -10,6 +10,36 @@ body{
   background-color: #17b326;
 }
 
+/*Header logo and new game containers */
+#header-container {
+	display: grid;
+	grid-template-columns: 11% auto 30%;
+}
+
+#header-container h1{
+	grid-column-start: 2;
+}
+#new-game-container{
+	border: 3px solid black;
+	border-radius: 15px;
+	grid-column-start: 3;
+	font-family: 'Rye', cursive;
+	display: grid;
+	grid-template-columns: 5% auto 5%;
+	grid-template-rows: 5% 45% 45% 5%;
+	padding:0;
+}
+#new-game-container h2{
+	grid-column-start: 2;
+	grid-row-start:2;
+	justify-self: center;
+}
+#new-game-buttons-container{
+	grid-column-start: 2;
+	grid-row-start:3;
+	justify-self: center;
+}
+
 button{
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
@@ -100,3 +130,4 @@ font-weight: bold;
   font-size: 24px;
   font-weight: bold;
 }
+

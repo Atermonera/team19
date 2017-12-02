@@ -1,10 +1,21 @@
 <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Quicksand" rel="stylesheet">
-<h1>Aces Up</h1>
+<link href="https://fonts.googleapis.com/css?family=Rye" rel="stylesheet">
 
 <link href="/assets/css/AcesUp.css" rel="stylesheet">
 <script type="text/javascript" src="/assets/webjars/jquery/2.1.3/jquery.js"></script>
 
 <body>
+	<div id="header-container">
+		<h1>Aces Up</h1>
+		<div id="new-game-container">
+			<h2>New game</h2>
+			<div id="new-game-buttons-container">
+				<button id="newSpanish">Spanish</button>
+				<button id="newStandard">Standard</button>
+			</div>
+		</div>
+	</div>
+	
 	<div>
 		<div class="movebutton">
 			<BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
@@ -137,9 +148,19 @@ function display(game) {
 
 }
 
-$.getJSON("http://localhost:8080/game", function( data ) {
-	display(data);
-	game = data;
+$("#newStandard").click(function(){
+	$.getJSON("http://localhost:8080/game/0", function( data ) {
+		display(data);
+		game = data;
+	});
+
+});
+$("#newSpanish").click(function(){
+	$.getJSON("http://localhost:8080/game/1", function( data ) {
+		display(data);
+		game = data;
+	});
+
 });
 
 
@@ -166,6 +187,7 @@ $("#dealButton").click(function(){
 		console.log("out!");
 		$('td#Deck').html('<img src="/assets/cardimages/Joker.jpg"/>')
 	}
+	
 	if(game.deck.length<=0)
 		alert("The deck is out of cards.");
 });

@@ -32,8 +32,8 @@ public class ApplicationController {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
 
-    public Result gameGet(){
-        Game g = new Game();
+    public Result gameGet(Context context, @PathParam("gameType") int gameType){
+        Game g = new Game(gameType);
         return Results.json().render(g);
     }
 
