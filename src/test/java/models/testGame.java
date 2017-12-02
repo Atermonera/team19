@@ -17,7 +17,7 @@ public class testGame {
     @Test
     public void testGameBuildDeck(){
         Game g = new Game(0);
-        assertEquals(52,g.deck.cards.size());
+        assertEquals(52,g.deck.getSize());
     }
 
     @Test
@@ -25,34 +25,34 @@ public class testGame {
         Game g1 = new Game(0);
         Game g2 = new Game(0);
         // g1 and g2 could shuffle to the same order, but that chance is approximately 1 in 8*10^67 shuffles
-        assertFalse(Arrays.equals(g1.deck.cards.toArray(),g2.deck.cards.toArray()));
+        assertFalse(Arrays.equals(g1.deck.stack.toArray(),g2.deck.stack.toArray()));
     }
 
     @Test
     public void testGameStart(){
         Game g = new Game(0);
-        assertEquals(1,g.columns.get(0).cards.size());
-        assertEquals(1,g.columns.get(1).cards.size());
-        assertEquals(1,g.columns.get(2).cards.size());
-        assertEquals(1,g.columns.get(3).cards.size());
+        assertEquals(1,g.cols[0].getSize());
+        assertEquals(1,g.cols[1].getSize());
+        assertEquals(1,g.cols[2].getSize());
+        assertEquals(1,g.cols[3].getSize());
     }
 
     @Test
     public void testCustomDeal(){
         Game g = new Game(0);
-        g.customDeal(new Card(2, StdC), new Card(3, StdC), new Card(4, StdC), new Card(5, StdC));
-        assertEquals("2Clubs",g.columns.get(0).cards.get(0).toString());
-        assertEquals("3Clubs",g.columns.get(1).cards.get(0).toString());
-        assertEquals("4Clubs",g.columns.get(2).cards.get(0).toString());
-        assertEquals("5Clubs",g.columns.get(3).cards.get(0).toString());
+        g.customDeal(new Card(2, Suit.StdC), new Card(3, Suit.StdC), new Card(4, Suit.StdC), new Card(5, Suit.StdC));
+        assertEquals("2StdC",g.cols[0].stack.get(0).toString());
+        assertEquals("3StdC",g.cols[1].stack.get(0).toString());
+        assertEquals("4StdC",g.cols[2].stack.get(0).toString());
+        assertEquals("5StdC",g.cols[3].stack.get(0).toString());
     }
 
     @Test
     public void testRemoveFunction(){
         Game g = new Game(0);
-        g.customDeal(new Card(2, StdC), new Card(3, StdC), new Card(4, StdC), new Card(5, StdC));
+        g.customDeal(new Card(2, Suit.StdC), new Card(3, Suit.StdC), new Card(4, Suit.StdC), new Card(5, Suit.StdC));
         g.remove(2);
-        assertEquals(0,g.columns.get(2).cards.size());
+        assertEquals(0,g.cols[2].getSize());
     }
 
 

@@ -77,7 +77,7 @@ public class Game {
 		return;
     }
 	
-	public void customDeal(card A, card B, card C, card D){
+	public void customDeal(Card A, Card B, Card C, Card D){
 		cols[0].push(A);
 		cols[1].push(B);
 		cols[2].push(C);
