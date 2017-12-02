@@ -9,6 +9,14 @@ import static org.junit.Assert.*;
 
 public class testGame {
 
+    public int Jokerlocation(Game g){
+        for (int i = 0; i < 4; i++) {
+            if (g.cols[i].peek().suit == Suit.J) {
+                return i;
+            }
+        }return -1;
+    }
+
     @Test
     public void testGameCreation(){
         Game g = new Game(0);
@@ -18,7 +26,7 @@ public class testGame {
     @Test
     public void testGameBuildDeck(){
         Game g = new Game(0);
-        assertEquals(52,g.deck.getSize());
+        assertEquals(48,g.deck.getSize()); //Constructor deals 4 cards initially
     }
 
     @Test
@@ -42,10 +50,10 @@ public class testGame {
     public void testCustomDeal(){
         Game g = new Game(0);
         g.customDeal(new Card(2, Suit.StdC), new Card(3, Suit.StdC), new Card(4, Suit.StdC), new Card(5, Suit.StdC));
-        assertEquals("2StdC",g.cols[0].stack.get(0).toString());
-        assertEquals("3StdC",g.cols[1].stack.get(0).toString());
-        assertEquals("4StdC",g.cols[2].stack.get(0).toString());
-        assertEquals("5StdC",g.cols[3].stack.get(0).toString());
+        assertEquals("2StdC",g.cols[0].peek().toString());
+        assertEquals("3StdC",g.cols[1].peek().toString());
+        assertEquals("4StdC",g.cols[2].peek().toString());
+        assertEquals("5StdC",g.cols[3].peek().toString());
     }
 
     @Test
@@ -53,10 +61,18 @@ public class testGame {
         Game g = new Game(0);
         g.customDeal(new Card(2, Suit.StdC), new Card(3, Suit.StdC), new Card(4, Suit.StdC), new Card(5, Suit.StdC));
         g.remove(2);
-        assertEquals(0,g.cols[2].getSize());
-
+        assertEquals(1,g.cols[2].getSize());
     }
 
+    @Test
+    public void testJoker(){
+        Game g = new Game(1);
+        g.customDeal(new Card(2, Suit.EsCl), new Card(13, Suit.J), new Card(4, Suit.EsCl), new Card(10, Suit.EsCo));
+        assertEquals(1, Jokerlocation(g));
+        g.remove(3);
+        assertEquals(-1, Jokerlocation(g));
+
+    }
 
     @Test
     public void testGameDealLowDeck(){

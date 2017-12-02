@@ -20,7 +20,10 @@ public class testCard {
     @Test
     public void testMoveCard(){
         Game g = new Game(0);
-        g.customDeal(new Card(2, Suit.StdC), new Card(3, Suit.StdC), new Card(4, Suit.StdC), new Card(15, Suit.StdC));
+        for(int i = 0; i < 4; i++)
+            g.cols[i] = new Stack();
+
+        g.customDeal(new Card(14, Suit.StdC), new Card(3, Suit.StdC), new Card(4, Suit.StdC), new Card(2, Suit.StdC));
         g.remove(2);
         assertEquals(0,g.cols[2].getSize());
         g.move(0,2);

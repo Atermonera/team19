@@ -65,9 +65,7 @@ public class Game {
 			discard.push(cols[columnNumber].pop());
 			discard.push(cols[jokerloc].pop());
 		}
-		
-		// check each pile for a joker, if one is found, remove both cards
-    }
+	}
 
     public void move(int columnFrom, int columnTo) {
 	    //see if the topmost card of col1 is an ace and that col2 is empty

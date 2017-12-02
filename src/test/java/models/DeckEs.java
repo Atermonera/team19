@@ -8,7 +8,7 @@ import java.util.Collections;
 public class DeckEs extends Stack{
 	public DeckEs(){
 		stack = new ArrayList<>();
-		for(int i=1; i < 12; i++) {
+		for(int i=1; i < 13; i++) {
 			stack.add(new Card(i, Suit.EsCl));
 			stack.add(new Card(i, Suit.EsCo));
 			stack.add(new Card(i, Suit.EsCu));

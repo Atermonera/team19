@@ -15,7 +15,7 @@ public class testDeck {
     @Test
     public void testEs(){
         Stack deckEs = new DeckEs();
-        assertEquals(52, deckEs.getSize());
+        assertEquals(50, deckEs.getSize());
 
     }
 
